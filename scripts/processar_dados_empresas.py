@@ -17,15 +17,18 @@ job.init(args['JOB_NAME'], args)
 
 # Carrega os dados do S3
 df = spark.read.format("csv") \
+    .option("encoding", "UTF-8") \
     .option("header", "true") \
     .load("s3://mybucket3s2/dados/originais/dados_empresas.csv")
+
+df = df.withColumnRenamed("Média", "media")
 
 # Converte os tipos de dados das colunas
 df = df.withColumn("data", df["data"].cast("timestamp")) \
        .withColumn("valor", df["valor"].cast("double")) \
        .withColumn("cnpj", df["cnpj"].cast("string")) \
        .withColumn("ytd", df["ytd"].cast("double")) \
-       .withColumn("média", df["média"].cast("double"))
+       .withColumn("media", df["media"].cast("double"))
 
 # Adiciona nova coluna com a data formatada como inteiro
 df_transformed = df.withColumn("data_int", date_format(col("data"), "yyyyMMdd").cast("int"))
