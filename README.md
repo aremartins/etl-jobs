@@ -1,7 +1,8 @@
 # AWS Glue ETL Job
 
 # Visão Geral
-Este projeto envolve a criação de um job ETL (Extract, Transform, Load) utilizando AWS Glue para processar dados fictícios de empresas. Os dados são carregados de um arquivo CSV armazenado no S3, transformados e salvos de volta no S3 em formato Parquet.
+Este projeto envolve a criação de um job ETL (Extract, Transform, Load) utilizando AWS Glue para processar dados fictícios de empresas. Os dados são carregados de um arquivo CSV armazenado no S3, transformados e salvos de volta no S3 em formato Parquet.<br>
+Para verificar os problemas encontrados durante o desenvolvimento e as respectivas soluções, verifique: [Erros e Soluções](https://github.com/aremartins/etl-jobs/blob/develop/ErrorsAndSolutions.md).
 
 # Estrutura do Projeto
 ```
